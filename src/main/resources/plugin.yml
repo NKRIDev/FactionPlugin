@@ -1,0 +1,8 @@
+name: FactionsPlugin
+author: NKRI
+main: fr.nkri.faction.FactionPlugin
+version: 1.0
+commands:
+  faction:
+    aliases:
+      - f
