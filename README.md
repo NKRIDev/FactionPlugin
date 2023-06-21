@@ -35,3 +35,7 @@
 
 ## Informations
 > Le plugin fonctionne avec java 17 et dépend de spigot 1.19+. Il est compilé avec Maven, les données sont sauvegarder un Json. Vous pouvez retrouver de nombreuses annotations afin de guider la lecture du code.
+
+## Liens
+Mon discord: https://discord.gg/KxpSxMTAxu
+N'oublier pas de me suivre sur Github ❤
