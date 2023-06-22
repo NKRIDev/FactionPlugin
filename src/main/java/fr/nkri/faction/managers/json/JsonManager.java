@@ -1,12 +1,9 @@
 package fr.nkri.faction.managers.json;
 
 import fr.nkri.faction.FactionPlugin;
-import fr.nkri.faction.enums.FactionRoleEnum;
-import fr.nkri.faction.objects.FPlayer;
-import fr.nkri.faction.objects.Faction;
+import fr.nkri.faction.models.FPlayer;
+import fr.nkri.faction.models.Faction;
 import fr.nkri.faction.utils.FileUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.util.Map;
@@ -42,7 +39,7 @@ public class JsonManager {
                 Faction faction = main.getJsonSerializer().deserialize(json, Faction.class);
 
                 if (faction != null) {
-                    main.getFactionManager().createFaction(faction.getPlayerOwner(), faction.getName(), faction.getDescription(), faction.getUuid());
+                    main.getFactionManager().createFaction(faction.getPlayerOwner(), faction.getName(), faction.getDescription(), faction.getUUID());
                 }
             }
         }
@@ -60,7 +57,7 @@ public class JsonManager {
                 FPlayer fPlayer = main.getJsonSerializer().deserialize(json, FPlayer.class);
 
                 if (fPlayer != null) {
-                    main.getFactionManager().createFPlayer(fPlayer.getName(), fPlayer.getUuidFaction(), fPlayer.getRole().getRoleEnum());
+                    main.getFactionManager().createFPlayer(fPlayer.getName(), fPlayer.getUUIDFaction(), fPlayer.getRole().getRoleEnum());
                 }
             }
         }

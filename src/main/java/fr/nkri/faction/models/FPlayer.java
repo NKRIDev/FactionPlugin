@@ -1,7 +1,6 @@
-package fr.nkri.faction.objects;
+package fr.nkri.faction.models;
 
 import com.google.gson.annotations.Expose;
-import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -28,7 +27,7 @@ public class FPlayer {
         this.role = role;
     }
 
-    public UUID getUuid() {
+    public UUID getUUID() {
         return uuid;
     }
 
@@ -45,11 +44,11 @@ public class FPlayer {
         return role;
     }
 
-    public UUID getUuidFaction() {
+    public UUID getUUIDFaction() {
         return uuidFaction;
     }
 
-    public void setUuidFaction(UUID uuidFaction) {
+    public void setUUIDFaction(UUID uuidFaction) {
         this.uuidFaction = uuidFaction;
     }
 }

@@ -3,7 +3,7 @@ package fr.nkri.faction.commands.subcommands.claims;
 import fr.nkri.faction.commands.SubCommand;
 import fr.nkri.faction.enums.FactionRoleEnum;
 import fr.nkri.faction.managers.FactionManager;
-import fr.nkri.faction.objects.FPlayer;
+import fr.nkri.faction.models.FPlayer;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -29,6 +29,7 @@ public class FactionUnClaimCommand extends SubCommand {
     public void perform(Player player, String[] args, FactionManager factionManager) {
         final Location loc = player.getLocation();
         final Chunk chunk = loc.getChunk();
+
         if(factionManager.hasFPlayer(player)){
             final FPlayer fPlayer = factionManager.getFPlayer(player);
 

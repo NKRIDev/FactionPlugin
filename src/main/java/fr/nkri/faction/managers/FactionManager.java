@@ -2,9 +2,9 @@ package fr.nkri.faction.managers;
 
 import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.enums.FactionRoleEnum;
-import fr.nkri.faction.objects.FPlayer;
-import fr.nkri.faction.objects.FRole;
-import fr.nkri.faction.objects.Faction;
+import fr.nkri.faction.models.FPlayer;
+import fr.nkri.faction.models.FRole;
+import fr.nkri.faction.models.Faction;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
@@ -76,7 +76,7 @@ public class FactionManager {
     //Retire une faction
     public void removeFaction(final Faction faction){
         factions.remove(faction);
-        factionsUUID.remove(faction.getUuid(), faction);
+        factionsUUID.remove(faction.getUUID(), faction);
         factionsName.remove(faction.getName(), faction);
     }
 
@@ -117,7 +117,7 @@ public class FactionManager {
             return false;
         }
 
-        if(getFPlayer(playerOne).getUuidFaction() == getFPlayer(playerTwo).getUuidFaction()){
+        if(getFPlayer(playerOne).getUUIDFaction() == getFPlayer(playerTwo).getUUIDFaction()){
             return true;
         }
         return false;
@@ -141,12 +141,12 @@ public class FactionManager {
 
     //Vérifie si le FPlayer à une faction
     public boolean hasFaction(final FPlayer fPlayer){
-        return fPlayer.getUuid() != null;
+        return fPlayer.getUUID() != null;
     }
 
     //Vérifie si la faction exite
     public boolean factionExist(final Faction faction){
-        return factionsUUID.containsKey(faction.getUuid());
+        return factionsUUID.containsKey(faction.getUUID());
     }
 
     /*=============================
@@ -158,8 +158,8 @@ public class FactionManager {
         if(!hasFPlayer(player)){
             final UUID uuid = UUID.randomUUID();
             final FRole fRole = new FRole(roleEnum);
-            final FPlayer fPlayer = new FPlayer(faction.getUuid(), uuid, player, fRole);
-            fPlayer.setUuidFaction(faction.getUuid());
+            final FPlayer fPlayer = new FPlayer(faction.getUUID(), uuid, player, fRole);
+            fPlayer.setUUIDFaction(faction.getUUID());
 
             faction.getMembers().add(fPlayer);
             factionPlayers.put(player, fPlayer);
@@ -171,7 +171,7 @@ public class FactionManager {
         if(!hasFPlayer(player)){
             final FRole fRole = new FRole(roleEnum);
             final FPlayer fPlayer = new FPlayer(uuid, uuid, player, fRole);
-            fPlayer.setUuidFaction(uuid);
+            fPlayer.setUUIDFaction(uuid);
 
             main.getFactionManager().getFaction(uuid).getMembers().add(fPlayer);
             factionPlayers.put(player, fPlayer);
@@ -199,7 +199,7 @@ public class FactionManager {
         if (fPlayer == null){
             return null;
         }
-        return getFaction(fPlayer.getUuidFaction());
+        return getFaction(fPlayer.getUUIDFaction());
     }
 
     //Vérifie si le joueur à un FPLayer grace à son pseudo

@@ -1,9 +1,8 @@
 package fr.nkri.faction.commands.subcommands;
 
-import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.commands.SubCommand;
 import fr.nkri.faction.managers.FactionManager;
-import fr.nkri.faction.objects.FPlayer;
+import fr.nkri.faction.models.FPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -30,8 +29,9 @@ public class FactionPermsCommand extends SubCommand {
             if(manager.hasFPlayer(player)){
                 if(manager.hasPermission(player, "faction.perms") || player.hasPermission("faction.admin")){
                     final String victimString = args[1];
-                    if(Bukkit.getPlayer(victimString) != null){
-                        final Player victimmPlayer = Bukkit.getPlayer(victimString);
+
+                    if(Bukkit.getPlayerExact(victimString) != null){
+                        final Player victimmPlayer = Bukkit.getPlayerExact(victimString);
                         final FPlayer fvictimmPlayer = manager.getFPlayer(victimmPlayer);
                         final FPlayer fPlayers = manager.getFPlayer(player);
 
@@ -43,9 +43,11 @@ public class FactionPermsCommand extends SubCommand {
                                 player.sendMessage(ChatColor.GREEN + "Vous venez d'ajouter la permission: '" + perms + "' à " + victimString);
                             }
                             else if(args[2].equalsIgnoreCase("remove")){
+
                                 if(perms.equals("faction.rank") || perms.equals("faction.perms")){
                                     player.sendMessage(ChatColor.RED + "Vous ne pouvez pas retirer ces permission de faction !");
                                 }
+
                                 manager.removePermission(victimmPlayer.getName(), perms);
                                 player.sendMessage(ChatColor.RED + "Vous venez de retirer la permission: '" + perms + "' à " + victimString);
                             }

@@ -1,9 +1,8 @@
 package fr.nkri.faction.commands.subcommands.invite;
 
-import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.commands.SubCommand;
 import fr.nkri.faction.managers.FactionManager;
-import fr.nkri.faction.objects.FPlayer;
+import fr.nkri.faction.models.FPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -27,9 +26,9 @@ public class FactionInviteCommand extends SubCommand {
     @Override
     public void perform(Player player, String[] args, FactionManager manager) {
         String victim = args[1];
-        if(Bukkit.getPlayer(victim) != null){
+        if(Bukkit.getPlayerExact(victim) != null){
             if(manager.hasFPlayer(player)){
-                final Player receiverPlayer = Bukkit.getPlayer(victim);
+                final Player receiverPlayer = Bukkit.getPlayerExact(victim);
                 final FPlayer requesterPlayer = manager.getFPlayer(player);
 
                 if(receiverPlayer != player){
@@ -37,8 +36,8 @@ public class FactionInviteCommand extends SubCommand {
 
                         player.sendMessage(ChatColor.GREEN + "Vous venez d'envoyé une invitation dans votre faction à " + receiverPlayer.getName());
                         receiverPlayer.sendMessage(ChatColor.GREEN + "Vous venez de recevoir une invitation pour rejoignre la faction: "
-                                + ChatColor.YELLOW + manager.getFaction(requesterPlayer.getUuidFaction()).getName()
-                                + ChatColor.GRAY + "/faction join " + manager.getFaction(requesterPlayer.getUuidFaction()).getName() + ", pour rejoignre ! ou alors /faction deny " + manager.getFaction(requesterPlayer.getUuidFaction()).getName() + " pour ne pas rejoignre !");
+                                + ChatColor.YELLOW + manager.getFaction(requesterPlayer.getUUIDFaction()).getName()
+                                + ChatColor.GRAY + "/faction join " + manager.getFaction(requesterPlayer.getUUIDFaction()).getName() + ", pour rejoignre ! ou alors /faction deny " + manager.getFaction(requesterPlayer.getUUIDFaction()).getName() + " pour ne pas rejoignre !");
 
                         manager.addRequest(receiverPlayer, requesterPlayer);
                     }

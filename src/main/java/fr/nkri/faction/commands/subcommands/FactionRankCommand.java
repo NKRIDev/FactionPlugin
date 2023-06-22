@@ -1,10 +1,9 @@
 package fr.nkri.faction.commands.subcommands;
 
-import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.commands.SubCommand;
 import fr.nkri.faction.enums.FactionRoleEnum;
 import fr.nkri.faction.managers.FactionManager;
-import fr.nkri.faction.objects.FPlayer;
+import fr.nkri.faction.models.FPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -31,9 +30,9 @@ public class FactionRankCommand extends SubCommand {
             if(manager.hasPermission(player.getName(), "faction.rank") || player.hasPermission("faction.admin")){
 
                 final String victimName = args[1];
-                if(Bukkit.getPlayer(victimName) != null){
+                if(Bukkit.getPlayerExact(victimName) != null){
 
-                    final Player victimPlayer = Bukkit.getPlayer(victimName);
+                    final Player victimPlayer = Bukkit.getPlayerExact(victimName);
                     final FPlayer fPlayerVictim = manager.getFPlayer(victimPlayer.getName());
                     final FPlayer fPlayer = manager.getFPlayer(player.getName());
 

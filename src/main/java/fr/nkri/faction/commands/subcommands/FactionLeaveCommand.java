@@ -1,6 +1,5 @@
 package fr.nkri.faction.commands.subcommands;
 
-import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.commands.SubCommand;
 import fr.nkri.faction.managers.FactionManager;
 import org.bukkit.ChatColor;
@@ -29,7 +28,7 @@ public class FactionLeaveCommand extends SubCommand {
             player.sendMessage(ChatColor.RED + "Vous devez rejoignre une faction pour faire ceci !");
         }
 
-        manager.leaveFaction(player, manager.getFaction(manager.getFPlayer(player).getUuidFaction()));
+        manager.leaveFaction(player, manager.getFaction(manager.getFPlayer(player).getUUIDFaction()));
 
     }
 }

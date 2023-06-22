@@ -1,9 +1,8 @@
 package fr.nkri.faction.commands.subcommands.invite;
 
-import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.commands.SubCommand;
 import fr.nkri.faction.managers.FactionManager;
-import fr.nkri.faction.objects.Faction;
+import fr.nkri.faction.models.Faction;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -32,7 +31,7 @@ public class FactionDenyCommand extends SubCommand {
 
             if(faction != null){
                 if(manager.getPlayer(player) != null){
-                    final Faction factionDeny = manager.getFaction(manager.getPlayer(player).getUuidFaction());
+                    final Faction factionDeny = manager.getFaction(manager.getPlayer(player).getUUIDFaction());
 
                     player.sendMessage(ChatColor.RED + "Vous venez de refusé l'invitation à rejoignre la faction " + factionDeny.getName() + " !");
                     manager.removeRequest(player);

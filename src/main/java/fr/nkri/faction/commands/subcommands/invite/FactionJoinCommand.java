@@ -1,10 +1,9 @@
 package fr.nkri.faction.commands.subcommands.invite;
 
-import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.commands.SubCommand;
 import fr.nkri.faction.enums.FactionRoleEnum;
 import fr.nkri.faction.managers.FactionManager;
-import fr.nkri.faction.objects.Faction;
+import fr.nkri.faction.models.Faction;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -35,7 +34,7 @@ public class FactionJoinCommand extends SubCommand {
 
                 if(manager.getPlayer(player) != null){
 
-                    final Faction factionJoin = manager.getFaction(manager.getPlayer(player).getUuidFaction());
+                    final Faction factionJoin = manager.getFaction(manager.getPlayer(player).getUUIDFaction());
 
                     manager.createFPlayer(player.getName(), factionJoin, FactionRoleEnum.RECRUE);
                     manager.removeRequest(player);

@@ -1,9 +1,7 @@
 package fr.nkri.faction.commands.subcommands;
 
-import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.commands.SubCommand;
 import fr.nkri.faction.managers.FactionManager;
-import fr.nkri.faction.objects.Faction;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 

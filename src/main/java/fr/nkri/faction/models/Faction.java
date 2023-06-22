@@ -1,7 +1,6 @@
-package fr.nkri.faction.objects;
+package fr.nkri.faction.models;
 
 import com.google.gson.annotations.Expose;
-import org.bukkit.entity.Player;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -35,7 +34,7 @@ public class Faction {
     }
 
 
-    public UUID getUuid() {
+    public UUID getUUID() {
         return id;
     }
 

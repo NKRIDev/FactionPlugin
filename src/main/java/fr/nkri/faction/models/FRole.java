@@ -1,4 +1,4 @@
-package fr.nkri.faction.objects;
+package fr.nkri.faction.models;
 
 import com.google.gson.annotations.Expose;
 import fr.nkri.faction.enums.FactionRoleEnum;

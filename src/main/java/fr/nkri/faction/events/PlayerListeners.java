@@ -2,12 +2,9 @@ package fr.nkri.faction.events;
 
 import fr.nkri.faction.FactionPlugin;
 import fr.nkri.faction.enums.FactionRoleEnum;
-import fr.nkri.faction.objects.FPlayer;
-import fr.nkri.faction.objects.Faction;
+import fr.nkri.faction.models.FPlayer;
+import fr.nkri.faction.models.Faction;
 import org.bukkit.ChatColor;
-import org.bukkit.Chunk;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,8 +13,6 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.event.world.ChunkUnloadEvent;
 
@@ -38,7 +33,7 @@ public class PlayerListeners implements Listener {
         if(main.getFactionManager().hasFPlayer(player.getName())){
             final FPlayer fPlayer = main.getFactionManager().getFPlayer(player.getName());
             String prefix = fPlayer.getRole().getRoleEnum().getPrefix();
-            String factionName = main.getFactionManager().getFaction(fPlayer.getUuidFaction()).getName();
+            String factionName = main.getFactionManager().getFaction(fPlayer.getUUIDFaction()).getName();
             String displayName = player.getDisplayName();
             String message = e.getMessage();
 
@@ -95,7 +90,7 @@ public class PlayerListeners implements Listener {
 
             final FPlayer fPlayer = main.getFactionManager().getFPlayer(player);
 
-            if(fPlayer.getUuidFaction() != faction.getUuid()){//Vérfie la faction du joueur
+            if(fPlayer.getUUIDFaction() != faction.getUUID()){//Vérfie la faction du joueur
                 player.sendMessage(ChatColor.RED + "Vous n'êtes pas dans la faction !");
                 e.setCancelled(true);
                 return;
@@ -125,7 +120,7 @@ public class PlayerListeners implements Listener {
 
             final FPlayer fPlayer = main.getFactionManager().getFPlayer(player);
 
-            if(fPlayer.getUuidFaction() != faction.getUuid()){//Vérfie la faction du joueur
+            if(fPlayer.getUUIDFaction() != faction.getUUID()){//Vérfie la faction du joueur
                 player.sendMessage(ChatColor.RED + "Vous n'êtes pas dans la faction !");
                 e.setCancelled(true);
                 return;
@@ -155,7 +150,7 @@ public class PlayerListeners implements Listener {
 
             final FPlayer fPlayer = main.getFactionManager().getFPlayer(player);
 
-            if(fPlayer.getUuidFaction() != faction.getUuid()){//Vérfie la faction du joueur
+            if(fPlayer.getUUIDFaction() != faction.getUUID()){//Vérfie la faction du joueur
                 player.sendMessage(ChatColor.RED + "Vous n'êtes pas dans la faction !");
                 e.setCancelled(true);
                 return;
