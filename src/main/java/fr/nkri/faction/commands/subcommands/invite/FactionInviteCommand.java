@@ -25,10 +25,11 @@ public class FactionInviteCommand extends SubCommand {
 
     @Override
     public void perform(Player player, String[] args, FactionManager manager) {
-        String victim = args[1];
-        if(Bukkit.getPlayerExact(victim) != null){
+        final String victim = args[1];
+        final Player receiverPlayer = Bukkit.getPlayerExact(victim);
+
+        if(receiverPlayer != null){
             if(manager.hasFPlayer(player)){
-                final Player receiverPlayer = Bukkit.getPlayerExact(victim);
                 final FPlayer requesterPlayer = manager.getFPlayer(player);
 
                 if(receiverPlayer != player){

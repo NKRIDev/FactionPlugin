@@ -29,9 +29,9 @@ public class FactionPermsCommand extends SubCommand {
             if(manager.hasFPlayer(player)){
                 if(manager.hasPermission(player, "faction.perms") || player.hasPermission("faction.admin")){
                     final String victimString = args[1];
+                    final Player victimmPlayer = Bukkit.getPlayerExact(victimString);
 
-                    if(Bukkit.getPlayerExact(victimString) != null){
-                        final Player victimmPlayer = Bukkit.getPlayerExact(victimString);
+                    if(victimmPlayer != null){
                         final FPlayer fvictimmPlayer = manager.getFPlayer(victimmPlayer);
                         final FPlayer fPlayers = manager.getFPlayer(player);
 

@@ -24,8 +24,6 @@ public class FRole {
     public Set<String> getPermissions() {
         return permissions;
     }
-
-
     public FactionRoleEnum getRoleEnum() {
         return roleEnum;
     }

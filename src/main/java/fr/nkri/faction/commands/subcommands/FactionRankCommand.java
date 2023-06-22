@@ -30,9 +30,9 @@ public class FactionRankCommand extends SubCommand {
             if(manager.hasPermission(player.getName(), "faction.rank") || player.hasPermission("faction.admin")){
 
                 final String victimName = args[1];
-                if(Bukkit.getPlayerExact(victimName) != null){
+                final Player victimPlayer = Bukkit.getPlayerExact(victimName);
+                if(victimPlayer != null){
 
-                    final Player victimPlayer = Bukkit.getPlayerExact(victimName);
                     final FPlayer fPlayerVictim = manager.getFPlayer(victimPlayer.getName());
                     final FPlayer fPlayer = manager.getFPlayer(player.getName());
 

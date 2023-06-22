@@ -31,7 +31,6 @@ public class FactionJoinCommand extends SubCommand {
             final Faction faction = manager.getFaction(name);
 
             if(faction != null){
-
                 if(manager.getPlayer(player) != null){
 
                     final Faction factionJoin = manager.getFaction(manager.getPlayer(player).getUUIDFaction());
