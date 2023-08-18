@@ -28,7 +28,7 @@ public class FactionCreateCommand extends SubCommand {
     @Override
     public void perform(Player player, String[] args, FactionManager manager) {
 
-        String name = "";
+        String name;
 
         if(args.length > 1){
             name = args[1];
