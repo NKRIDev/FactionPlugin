@@ -38,5 +38,3 @@
 
 ## Liens
 Mon discord: https://discord.gg/KxpSxMTAxu
-
-N'oublier pas de me suivre sur Github !
